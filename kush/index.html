@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kushal - B.E CSE Student & Aspiring Web Developer Portfolio. Modern Glass Minimalist & Pixel Experience.">
+  <meta name="keywords" content="Kushal, B.E CSE Student, Computer Science, Beginner Developer, Portfolio, React, Python, JavaScript, HTML, CSS, Git, GitHub">
+  <meta name="author" content="Kushal">
+  
+  <!-- Open Graph / Social Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Kushal | B.E CSE Student & Developer Portfolio">
+  <meta property="og:description" content="Explore Kushal's B.E CSE portfolio, featured student projects, technical skills, and interactive AI chat.">
+  <meta property="og:url" content="https://github.com/kushaldkush29-web">
+  
+  <title>Kushal | B.E CSE Student & Developer Portfolio</title>
+  
+  <!-- Google Fonts: Pixel Typography & Clean Modern Body Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,600;0,700;1,400&family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&family=VT323&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Ambient Cyber Background & Scanline Overlays -->
+  <canvas id="cyber-bg-canvas" aria-hidden="true"></canvas>
+  <div class="crt-scanlines" aria-hidden="true"></div>
+  <div class="vignette-overlay" aria-hidden="true"></div>
+
+  <!-- Accessibility: Skip to Main Content Link -->
+  <a href="#main-content" class="skip-to-content">Skip to Main Content</a>
+
+  <!-- Top Status & Theme Controller Bar -->
+  <header class="top-status-bar glass-bar" role="banner">
+    <div class="status-left">
+      <span class="live-dot" aria-hidden="true"></span>
+      <span class="status-text">SYS_STATUS: ONLINE // KUSHAL.DEV_PORTFOLIO</span>
+    </div>
+    <div class="status-right">
+      <!-- Theme Switcher: Auto Media Query + Manual Override -->
+      <button id="theme-toggle-btn" class="glass-btn sm" aria-label="Toggle Night/Cyber Theme" title="Toggle Light / Cyber Theme">
+        <span class="theme-icon">🌙</span>
+        <span class="theme-label">CYBER_NIGHT</span>
+      </button>
+
+      <!-- Retro Audio FX Toggle (Web Audio API Synthesizer) -->
+      <button id="sound-toggle-btn" class="glass-btn sm" aria-label="Toggle 8-bit Sound Effects" title="Toggle Retro Sound FX">
+        <span class="sound-icon">🔊</span>
+        <span class="sound-label">AUDIO: ON</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="app-layout">
+    <!-- ==================== VERTICAL NAVIGATION BAR ==================== -->
+    <!-- Fixed Left Vertical Sidebar on Desktop, Collapsible Drawer on Mobile -->
+    <aside class="sidebar-header glass-sidebar" aria-label="Primary Navigation Sidebar">
+      <div class="brand-badge">
+        <div class="pixel-avatar-thumb glass-avatar-thumb">
+          <img src="assets/avatar.jpg" alt="Kushal Profile Avatar" class="mini-avatar">
+        </div>
+        <div class="brand-text">
+          <h1 class="brand-title">KUSHAL<span class="neon-blink">_</span></h1>
+          <span class="brand-sub">B.E CSE STUDENT</span>
+        </div>
+        <!-- Mobile Navigation Menu Toggle Button -->
+        <button id="mobile-nav-toggle" class="mobile-nav-toggle glass-btn sm" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-navigation">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+
+      <nav class="vertical-navbar" id="primary-navigation" role="navigation" aria-label="Main Portfolio Navigation">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#hero" class="nav-link active" data-sound="blip">
+              <span class="nav-pixel-icon">🏠</span>
+              <span class="nav-text">Home</span>
+              <span class="nav-pip"></span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#about" class="nav-link" data-sound="blip">
+              <span class="nav-pixel-icon">👨‍💻</span>
+              <span class="nav-text">About</span>
+              <span class="nav-pip"></span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#skills" class="nav-link" data-sound="blip">
+              <span class="nav-pixel-icon">⚡</span>
+              <span class="nav-text">Skills</span>
+              <span class="nav-pip"></span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#projects" class="nav-link" data-sound="blip">
+              <span class="nav-pixel-icon">🚀</span>
+              <span class="nav-text">Projects</span>
+              <span class="nav-pip"></span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#testimonials" class="nav-link" data-sound="blip">
+              <span class="nav-pixel-icon">💬</span>
+              <span class="nav-text">Testimonials</span>
+              <span class="nav-pip"></span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#chat" class="nav-link" data-sound="blip">
+              <span class="nav-pixel-icon">🤖</span>
+              <span class="nav-text">AI Chat</span>
+              <span class="nav-pip"></span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link" data-sound="blip">
+              <span class="nav-pixel-icon">✉️</span>
+              <span class="nav-text">Contact</span>
+              <span class="nav-pip"></span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="nav-footer-stats">
+        <div class="ram-meter">
+          <span class="meter-label">SYSTEM_LOAD</span>
+          <div class="pixel-progress-mini">
+            <div class="pixel-progress-fill" style="width: 38%;"></div>
+          </div>
+          <span class="meter-val">38% OPTIMAL</span>
+        </div>
+        <div class="user-coords">LOCATION: ONLINE</div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main id="main-content" class="main-viewport" role="main">
+      
+      <!-- ==================== HERO SECTION (Glass Minimalist Style) ==================== -->
+      <!-- Hero with glassmorphism backdrop blur, provided background image integration, welcoming title & brief tagline -->
+      <section id="hero" class="cyber-section hero-section glass-hero-section" aria-label="Hero Introduction">
+        <!-- Subtle Ambient Background Image Layer with Gradient Mask -->
+        <div class="hero-bg-backdrop" aria-hidden="true" style="background-image: url('assets/avatar.jpg');"></div>
+        <div class="hero-bg-overlay" aria-hidden="true"></div>
+
+        <div class="hero-container glass-card main-glass-hero">
+          <div class="hero-content">
+            <div class="hero-badge glass-tag">
+              <span class="pulse-circle" aria-hidden="true"></span> AVAILABLE FOR INTERNSHIPS // B.E CSE STUDENT
+            </div>
+            
+            <h1 class="hero-title glitch-text" data-text="KUSHAL">
+              Welcome, I'm <span class="neon-highlight">Kushal</span>
+            </h1>
+            
+            <h2 class="hero-role">
+              <span class="typing-target" id="typing-text">B.E CSE Student</span><span class="cursor-blink">|</span>
+            </h2>
+            
+            <p class="hero-tagline">
+              Enthusiastic Computer Science & Engineering student building foundational web applications, exploring modern full-stack development, and creating clean minimalist interfaces with React, Python, JavaScript, and HTML/CSS.
+            </p>
+
+            <div class="hero-actions">
+              <!-- Primary CTA: View My Projects -->
+              <a href="#projects" class="glass-btn primary pulse-btn" data-sound="click">
+                <span class="btn-icon">🚀</span> View My Projects
+              </a>
+              <!-- Secondary CTA: Contact Me -->
+              <a href="#contact" class="glass-btn secondary" data-sound="click">
+                <span class="btn-icon">✉️</span> Contact Me
+              </a>
+              <a href="#chat" class="glass-btn alt" data-sound="click">
+                <span class="btn-icon">🤖</span> AI Assistant
+              </a>
+            </div>
+
+            <div class="hero-stats-bar">
+              <div class="stat-card">
+                <span class="stat-number">B.E CSE</span>
+                <span class="stat-label">ACADEMIC DEGREE</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">Beginner</span>
+                <span class="stat-label">EXP LEVEL</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">Hands-On</span>
+                <span class="stat-label">PROJECT LEARNER</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">Open</span>
+                <span class="stat-label">FOR INTERNSHIPS</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual-frame">
+            <div class="glass-portrait-frame">
+              <div class="frame-corner top-left"></div>
+              <div class="frame-corner top-right"></div>
+              <div class="frame-corner bottom-left"></div>
+              <div class="frame-corner bottom-right"></div>
+              
+              <div class="hero-image-wrapper">
+                <img src="assets/avatar.jpg" alt="Kushal B.E CSE Student Portrait" class="hero-portrait">
+                <div class="hologram-scanline"></div>
+                <div class="hud-layer">
+                  <div class="hud-item hud-top-left">NAME: KUSHAL</div>
+                  <div class="hud-item hud-top-right">STATUS: LEARNER</div>
+                  <div class="hud-item hud-bottom-left">DEGREE: B.E CSE</div>
+                  <div class="hud-item hud-bottom-right">EXP: BEGINNER</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== ABOUT SECTION ==================== -->
+      <!-- Professional developer introduction, bio narrative, and skill highlight cards -->
+      <section id="about" class="cyber-section about-section" aria-label="About Kushal">
+        <div class="section-header">
+          <div class="section-tag pixel-tag">01 // IDENTITY</div>
+          <h2 class="section-title">ABOUT <span class="neon-highlight">ME</span></h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="about-grid">
+          <!-- Left Column: Profile Card -->
+          <div class="about-avatar-card glass-card">
+            <div class="pixel-box-header">
+              <span class="box-dot red"></span>
+              <span class="box-dot yellow"></span>
+              <span class="box-dot green"></span>
+              <span class="box-title">STUDENT_PROFILE.SYS</span>
+            </div>
+            <div class="avatar-display">
+              <img src="assets/avatar.jpg" alt="Kushal B.E CSE Student Profile Avatar" class="profile-img">
+              <div class="avatar-badge">B.E CSE STUDENT</div>
+            </div>
+            <div class="bio-stats">
+              <div class="bio-stat-row">
+                <span class="bio-label">NAME:</span>
+                <span class="bio-val">Kushal</span>
+              </div>
+              <div class="bio-stat-row">
+                <span class="bio-label">ROLE:</span>
+                <span class="bio-val">B.E CSE Student</span>
+              </div>
+              <div class="bio-stat-row">
+                <span class="bio-label">EXPERIENCE:</span>
+                <span class="bio-val">Beginner / Fresher</span>
+              </div>
+              <div class="bio-stat-row">
+                <span class="bio-label">CORE TECH:</span>
+                <span class="bio-val">HTML, CSS, JS, Python, React</span>
+              </div>
+              <div class="bio-stat-row">
+                <span class="bio-label">VERSION CONTROL:</span>
+                <span class="bio-val">Git & GitHub</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Narrative Story & Key Expertise Cards -->
+          <div class="about-text-content">
+            <div class="glass-card bio-narrative">
+              <h3 class="bio-heading">&gt; ABOUT KUSHAL</h3>
+              <p>
+                Hello! I am <strong>Kushal</strong>, a passionate <strong>B.E Computer Science & Engineering (CSE) student</strong> and an aspiring software developer. As a beginner stepping into the tech world, I am deeply focused on mastering core programming concepts, problem-solving, and developing practical web projects.
+              </p>
+              <p>
+                I am actively learning frontend web development with <strong>HTML5, CSS3, JavaScript, and React</strong>, backend foundations with <strong>Python</strong>, and collaborative source control using <strong>Git & GitHub</strong>. I am enthusiastic about expanding my technical knowledge and seeking internship and entry-level opportunities to apply my skills.
+              </p>
+            </div>
+
+            <!-- Areas of Expertise / Highlight Cards -->
+            <div class="highlights-grid">
+              <div class="highlight-item glass-card sm">
+                <div class="highlight-icon">💻</div>
+                <h4>Frontend Web Basics</h4>
+                <p>Building responsive, accessible web pages using modern HTML5, clean CSS3 layouts, and vanilla JavaScript.</p>
+              </div>
+              <div class="highlight-item glass-card sm">
+                <div class="highlight-icon">🐍</div>
+                <h4>Python Programming</h4>
+                <p>Learning core Python fundamentals, problem-solving algorithms, data structures, and script automation.</p>
+              </div>
+              <div class="highlight-item glass-card sm">
+                <div class="highlight-icon">🐙</div>
+                <h4>Git & GitHub</h4>
+                <p>Tracking code versions, managing project repositories, and collaborating on open-source student workflows.</p>
+              </div>
+              <div class="highlight-item glass-card sm">
+                <div class="highlight-icon">🎨</div>
+                <h4>Modern UI & Styling</h4>
+                <p>Creating visually engaging user interfaces with modern glassmorphism aesthetics, dark themes, and responsive design.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SKILLS SECTION ==================== -->
+      <!-- Dedicated Skills section with technology cards: HTML, CSS, JavaScript, React, Python, Git, GitHub -->
+      <section id="skills" class="cyber-section skills-section" aria-label="Technical Skills">
+        <div class="section-header">
+          <div class="section-tag pixel-tag">02 // TECH_STACK</div>
+          <h2 class="section-title">TECHNICAL <span class="neon-highlight">SKILLS</span></h2>
+          <div class="section-line"></div>
+        </div>
+
+        <p class="skills-intro">
+          Technologies and developer tools I actively use to design, develop, and deploy software applications:
+        </p>
+
+        <!-- Technology Skills Grid -->
+        <div class="skills-grid">
+          <!-- Skill: HTML -->
+          <div class="skill-card glass-card">
+            <div class="skill-top">
+              <span class="skill-icon">🌐</span>
+              <h3 class="skill-name">HTML5</h3>
+              <span class="skill-badge">CORE</span>
+            </div>
+            <div class="pixel-bar-wrapper" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
+              <div class="pixel-bar-fill" style="--skill-pct: 95%;"></div>
+            </div>
+            <p class="skill-desc">Semantic HTML tags, accessibility (a11y), SEO best practices, structured documents.</p>
+          </div>
+
+          <!-- Skill: CSS -->
+          <div class="skill-card glass-card">
+            <div class="skill-top">
+              <span class="skill-icon">🎨</span>
+              <h3 class="skill-name">CSS3</h3>
+              <span class="skill-badge">CORE</span>
+            </div>
+            <div class="pixel-bar-wrapper" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+              <div class="pixel-bar-fill" style="--skill-pct: 90%;"></div>
+            </div>
+            <p class="skill-desc">Responsive layouts, Flexbox, CSS Grid, Glassmorphism backdrop-blur, custom variables.</p>
+          </div>
+
+          <!-- Skill: JavaScript -->
+          <div class="skill-card glass-card">
+            <div class="skill-top">
+              <span class="skill-icon">⚡</span>
+              <h3 class="skill-name">JavaScript</h3>
+              <span class="skill-badge">CORE</span>
+            </div>
+            <div class="pixel-bar-wrapper" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100">
+              <div class="pixel-bar-fill" style="--skill-pct: 92%;"></div>
+            </div>
+            <p class="skill-desc">Modern ES6+ syntax, asynchronous programming (Promises, async/await), DOM manipulation.</p>
+          </div>
+
+          <!-- Skill: React -->
+          <div class="skill-card glass-card">
+            <div class="skill-top">
+              <span class="skill-icon">⚛️</span>
+              <h3 class="skill-name">React</h3>
+              <span class="skill-badge">FRAMEWORK</span>
+            </div>
+            <div class="pixel-bar-wrapper" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100">
+              <div class="pixel-bar-fill" style="--skill-pct: 88%;"></div>
+            </div>
+            <p class="skill-desc">Component architecture, React Hooks, state management, SPA routing, reusable UI patterns.</p>
+          </div>
+
+          <!-- Skill: Python -->
+          <div class="skill-card glass-card">
+            <div class="skill-top">
+              <span class="skill-icon">🐍</span>
+              <h3 class="skill-name">Python</h3>
+              <span class="skill-badge">BACKEND</span>
+            </div>
+            <div class="pixel-bar-wrapper" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+              <div class="pixel-bar-fill" style="--skill-pct: 85%;"></div>
+            </div>
+            <p class="skill-desc">Backend development, REST APIs, data manipulation, automation scripting, algorithms.</p>
+          </div>
+
+          <!-- Skill: Git -->
+          <div class="skill-card glass-card">
+            <div class="skill-top">
+              <span class="skill-icon">🌿</span>
+              <h3 class="skill-name">Git</h3>
+              <span class="skill-badge">TOOL</span>
+            </div>
+            <div class="pixel-bar-wrapper" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+              <div class="pixel-bar-fill" style="--skill-pct: 90%;"></div>
+            </div>
+            <p class="skill-desc">Version control, branch management, merge conflict resolution, commit history tracking.</p>
+          </div>
+
+          <!-- Skill: GitHub -->
+          <div class="skill-card glass-card">
+            <div class="skill-top">
+              <span class="skill-icon">🐙</span>
+              <h3 class="skill-name">GitHub</h3>
+              <span class="skill-badge">PLATFORM</span>
+            </div>
+            <div class="pixel-bar-wrapper" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+              <div class="pixel-bar-fill" style="--skill-pct: 90%;"></div>
+            </div>
+            <p class="skill-desc">Repositories, Pull Requests, Code Reviews, GitHub Pages deployment, Project tracking.</p>
+          </div>
+
+          <!-- Skill: TypeScript & Additional Web Tools -->
+          <div class="skill-card glass-card">
+            <div class="skill-top">
+              <span class="skill-icon">🛠️</span>
+              <h3 class="skill-name">TypeScript & Tools</h3>
+              <span class="skill-badge">TOOLING</span>
+            </div>
+            <div class="pixel-bar-wrapper" role="progressbar" aria-valuenow="84" aria-valuemin="0" aria-valuemax="100">
+              <div class="pixel-bar-fill" style="--skill-pct: 84%;"></div>
+            </div>
+            <p class="skill-desc">Static typing, Node.js runtimes, VS Code tooling, REST APIs, and modern Web APIs.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== PROJECTS / PORTFOLIO SECTION ==================== -->
+      <!-- Portfolio grid with project cards, thumbnails, tech badges, GitHub links, and live demo buttons -->
+      <section id="projects" class="cyber-section projects-section" aria-label="Featured Projects">
+        <div class="section-header">
+          <div class="section-tag pixel-tag">03 // SHOWCASE</div>
+          <h2 class="section-title">FEATURED <span class="neon-highlight">PROJECTS</span></h2>
+          <div class="section-line"></div>
+        </div>
+
+        <p class="projects-intro">
+          A selection of projects demonstrating full-stack engineering, interactive user interfaces, and clean code principles.
+        </p>
+
+        <div class="projects-grid" id="projects-container">
+          <!-- Project Card 1 -->
+          <article class="project-card glass-card" data-project-id="1">
+            <div class="project-thumbnail-wrapper">
+              <img src="assets/project1.jpg" alt="Neural Link AI Telemetry Dashboard project thumbnail" class="project-img">
+              <div class="thumbnail-overlay">
+                <button class="glass-btn primary inspect-btn" data-sound="click" aria-label="Inspect Neural Link project">
+                  <span>⚡ View Details</span>
+                </button>
+              </div>
+              <span class="card-corner-tag">AI & TELEMETRY</span>
+            </div>
+            <div class="project-card-body">
+              <div class="project-header-row">
+                <h3 class="project-title">Neural Link Telemetry Dashboard</h3>
+                <span class="project-status-dot online" title="Status: Completed"></span>
+              </div>
+              <p class="project-summary">
+                A real-time cognitive data visualizer displaying neural network nodes, throughput streams, loss convergence, and system logs.
+              </p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">Python API</span>
+              </div>
+              <div class="project-btn-group">
+                <a href="https://github.com/kushaldkush29-web" target="_blank" rel="noopener noreferrer" class="glass-btn sm" data-sound="click">
+                  <span>🐙 GitHub</span>
+                </a>
+                <a href="#projects" class="glass-btn sm primary inspect-trigger" data-project-id="1" data-sound="click">
+                  <span>🌐 Live Demo</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project Card 2 -->
+          <article class="project-card glass-card" data-project-id="2">
+            <div class="project-thumbnail-wrapper">
+              <img src="assets/project2.jpg" alt="Distributed City Systems Visualizer thumbnail" class="project-img">
+              <div class="thumbnail-overlay">
+                <button class="glass-btn primary inspect-btn" data-sound="click" aria-label="Inspect Cyber Engine project">
+                  <span>⚡ View Details</span>
+                </button>
+              </div>
+              <span class="card-corner-tag">SIMULATION</span>
+            </div>
+            <div class="project-card-body">
+              <div class="project-header-row">
+                <h3 class="project-title">Cybernetic City Network Engine</h3>
+                <span class="project-status-dot online" title="Status: Completed"></span>
+              </div>
+              <p class="project-summary">
+                An isometric distributed system simulation modeling network flow, node telemetry, traffic throughput, and server grid coordination.
+              </p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">HTML5 Canvas</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">Algorithms</span>
+              </div>
+              <div class="project-btn-group">
+                <a href="https://github.com/kushaldkush29-web" target="_blank" rel="noopener noreferrer" class="glass-btn sm" data-sound="click">
+                  <span>🐙 GitHub</span>
+                </a>
+                <a href="#projects" class="glass-btn sm primary inspect-trigger" data-project-id="2" data-sound="click">
+                  <span>🌐 Live Demo</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project Card 3 -->
+          <article class="project-card glass-card" data-project-id="3">
+            <div class="project-thumbnail-wrapper">
+              <img src="assets/project3.jpg" alt="Quantum Crypto Ledger Terminal thumbnail" class="project-img">
+              <div class="thumbnail-overlay">
+                <button class="glass-btn primary inspect-btn" data-sound="click" aria-label="Inspect Quantum Ledger project">
+                  <span>⚡ View Details</span>
+                </button>
+              </div>
+              <span class="card-corner-tag">FINTECH & DATA</span>
+            </div>
+            <div class="project-card-body">
+              <div class="project-header-row">
+                <h3 class="project-title">Quantum Ledger Trading Terminal</h3>
+                <span class="project-status-dot online" title="Status: Completed"></span>
+              </div>
+              <p class="project-summary">
+                An interactive financial telemetry dashboard featuring real-time candlestick charts, order book execution feeds, and responsive dark mode.
+              </p>
+              <div class="project-tech-stack">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">REST APIs</span>
+                <span class="tech-tag">Git</span>
+              </div>
+              <div class="project-btn-group">
+                <a href="https://github.com/kushaldkush29-web" target="_blank" rel="noopener noreferrer" class="glass-btn sm" data-sound="click">
+                  <span>🐙 GitHub</span>
+                </a>
+                <a href="#projects" class="glass-btn sm primary inspect-trigger" data-project-id="3" data-sound="click">
+                  <span>🌐 Live Demo</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ==================== TESTIMONIALS SECTION ==================== -->
+      <!-- Testimonials cards with quote, author name, role/company, and hover effects -->
+      <section id="testimonials" class="cyber-section testimonials-section" aria-label="Testimonials">
+        <div class="section-header">
+          <div class="section-tag pixel-tag">04 // FEEDBACK</div>
+          <h2 class="section-title">CLIENT & PEER <span class="neon-highlight">TESTIMONIALS</span></h2>
+          <div class="section-line"></div>
+        </div>
+
+        <p class="testimonials-intro">
+          Feedback and recommendations from colleagues, engineering leads, and project collaborators:
+        </p>
+
+        <div class="testimonials-grid">
+          <!-- Testimonial 1 (Placeholder) -->
+          <div class="testimonial-card glass-card">
+            <div class="testimonial-header">
+              <div class="peer-avatar">👨‍💻</div>
+              <div class="peer-info">
+                <h4>Alex Rivera</h4>
+                <span>Senior Engineering Lead [Placeholder]</span>
+              </div>
+            </div>
+            <blockquote class="testimonial-body">
+              "Kushal is a dedicated and skilled developer. His ability to translate UI designs into clean, responsive code while keeping performance top-of-mind made our collaboration seamless and highly successful."
+            </blockquote>
+            <div class="testimonial-rating">★★★★★ [VERIFIED_FEEDBACK]</div>
+          </div>
+
+          <!-- Testimonial 2 (Placeholder) -->
+          <div class="testimonial-card glass-card">
+            <div class="testimonial-header">
+              <div class="peer-avatar">👩‍💼</div>
+              <div class="peer-info">
+                <h4>Sarah Jenkins</h4>
+                <span>Product Manager [Placeholder]</span>
+              </div>
+            </div>
+            <blockquote class="testimonial-body">
+              "Working with Kushal was an outstanding experience. He delivers clean, well-tested code ahead of schedule, communicates effectively, and proactively solves technical roadblocks."
+            </blockquote>
+            <div class="testimonial-rating">★★★★★ [VERIFIED_FEEDBACK]</div>
+          </div>
+
+          <!-- Testimonial 3 (Placeholder) -->
+          <div class="testimonial-card glass-card">
+            <div class="testimonial-header">
+              <div class="peer-avatar">⚡</div>
+              <div class="peer-info">
+                <h4>David Chen</h4>
+                <span>Tech Lead & Collaborator [Placeholder]</span>
+              </div>
+            </div>
+            <blockquote class="testimonial-body">
+              "Kushal brings strong problem-solving skills, deep mastery of React and Python, and great attention to detail. Any development team would be lucky to have him onboard."
+            </blockquote>
+            <div class="testimonial-rating">★★★★★ [VERIFIED_FEEDBACK]</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== AI CHAT INTERFACE SECTION ==================== -->
+      <!-- Interactive AI Chat allowing visitors to converse with a virtual assistant about Kushal -->
+      <section id="chat" class="cyber-section chat-section" aria-label="AI Chat Assistant">
+        <div class="section-header">
+          <div class="section-tag pixel-tag">05 // AI_ASSISTANT</div>
+          <h2 class="section-title">KUSHAL_AI <span class="neon-highlight">INTERACTIVE CHAT</span></h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="terminal-container glass-card">
+          <div class="terminal-bar">
+            <div class="terminal-dots">
+              <span class="tdot red"></span>
+              <span class="tdot yellow"></span>
+              <span class="tdot green"></span>
+            </div>
+            <div class="terminal-title">chat -- virtual-kushal@ai-agent:~ (Interactive Portfolio Assistant)</div>
+            <div class="terminal-actions">
+              <button id="clear-term-btn" class="glass-btn micro" title="Clear Chat History">CLEAR</button>
+            </div>
+          </div>
+
+          <!-- Chat Messages Screen -->
+          <div class="terminal-screen" id="terminal-screen" tabindex="0" aria-label="AI Chat Message Log" role="log" aria-live="polite">
+            <div class="term-line system-msg">
+              [SYSTEM] KUSHAL_AI AGENT v2.6 READY. ASK QUESTIONS ABOUT KUSHAL'S SKILLS, PROJECTS, OR BACKGROUND.
+            </div>
+            <div class="term-line bot-msg">
+              <span class="msg-author">KUSHAL_AI:</span> Hello! I'm Kushal's virtual AI assistant. How can I help you today? You can ask about his skills, projects, background, or how to get in touch.
+            </div>
+          </div>
+
+          <!-- Typing Indicator -->
+          <div id="ai-typing-indicator" class="typing-indicator" hidden>
+            <span>KUSHAL_AI is typing</span>
+            <span class="dot-1">.</span><span class="dot-2">.</span><span class="dot-3">.</span>
+          </div>
+
+          <!-- Message Input Form -->
+          <form id="terminal-form" class="terminal-input-row" aria-label="AI Chat Input Form">
+            <span class="terminal-prompt">&gt; ask:</span>
+            <input 
+              type="text" 
+              id="terminal-input" 
+              class="terminal-input" 
+              placeholder="Ask me anything (e.g., 'What are Kushal\'s skills?', 'Projects', 'Contact')..." 
+              autocomplete="off" 
+              required
+              aria-label="Message for AI assistant"
+            >
+            <button type="submit" class="glass-btn sm terminal-send-btn" data-sound="click">
+              <span>SEND</span>
+            </button>
+          </form>
+
+          <!-- Quick Prompts Bar -->
+          <div class="quick-commands-bar">
+            <span class="quick-cmd-label">SUGGESTIONS:</span>
+            <button type="button" class="quick-cmd-chip" data-cmd="Who is Kushal?">Who is Kushal?</button>
+            <button type="button" class="quick-cmd-chip" data-cmd="What are your skills?">Skills</button>
+            <button type="button" class="quick-cmd-chip" data-cmd="Tell me about your projects">Projects</button>
+            <button type="button" class="quick-cmd-chip" data-cmd="How can I contact you?">Contact</button>
+            <button type="button" class="quick-cmd-chip" data-cmd="What are your interests?">Interests</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== CONTACT FORM SECTION ==================== -->
+      <!-- Contact Me section with validated Name, Email, Message, and high-contrast submit -->
+      <section id="contact" class="cyber-section contact-section" aria-label="Contact Me">
+        <div class="section-header">
+          <div class="section-tag pixel-tag">06 // TRANSMISSION</div>
+          <h2 class="section-title">GET IN <span class="neon-highlight">TOUCH</span></h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Left: Contact Details Card -->
+          <div class="contact-info-card glass-card">
+            <h3 class="contact-card-title">&gt; CONNECT DIRECTLY</h3>
+            <p class="contact-card-subtitle">
+              Interested in collaborating, hiring for full-stack developer roles, or discussing a project? Send a message using the form or connect through my social profiles.
+            </p>
+
+            <div class="channel-list">
+              <div class="channel-item">
+                <span class="chan-icon">🐙</span>
+                <div class="chan-details">
+                  <span class="chan-type">GITHUB PROFILE</span>
+                  <a href="https://github.com/kushaldkush29-web" target="_blank" rel="noopener noreferrer" class="chan-val">github.com/kushaldkush29-web</a>
+                </div>
+              </div>
+
+              <div class="channel-item">
+                <span class="chan-icon">💼</span>
+                <div class="chan-details">
+                  <span class="chan-type">LINKEDIN NETWORK</span>
+                  <a href="https://www.linkedin.com/in/kushal-d-bb5b8a397" target="_blank" rel="noopener noreferrer" class="chan-val">linkedin.com/in/kushal-d-bb5b8a397</a>
+                </div>
+              </div>
+
+              <div class="channel-item">
+                <span class="chan-icon">📫</span>
+                <div class="chan-details">
+                  <span class="chan-type">DIRECT EMAIL</span>
+                  <a href="mailto:kushaldkush29@gmail.com" class="chan-val">kushaldkush29@gmail.com</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="pgp-badge glass-card sm">
+              <span class="pgp-title">AVAILABILITY STATUS:</span>
+              <code class="pgp-code">OPEN FOR INTERNSHIPS & ENTRY-LEVEL ROLES // B.E CSE STUDENT</code>
+            </div>
+          </div>
+
+          <!-- Right: Validated Contact Form -->
+          <div class="contact-form-card glass-card">
+            <form id="cyber-contact-form" class="cyber-form" novalidate>
+              <div class="form-group">
+                <label for="sender-name" class="form-label">&gt; YOUR NAME *</label>
+                <input 
+                  type="text" 
+                  id="sender-name" 
+                  name="name" 
+                  class="glass-input" 
+                  placeholder="e.g. Alex Morgan" 
+                  required 
+                  aria-required="true"
+                >
+                <span class="input-error-msg" id="name-error" aria-live="polite"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="sender-email" class="form-label">&gt; YOUR EMAIL *</label>
+                <input 
+                  type="email" 
+                  id="sender-email" 
+                  name="email" 
+                  class="glass-input" 
+                  placeholder="e.g. alex@example.com" 
+                  required 
+                  aria-required="true"
+                >
+                <span class="input-error-msg" id="email-error" aria-live="polite"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="sender-message" class="form-label">&gt; MESSAGE *</label>
+                <textarea 
+                  id="sender-message" 
+                  name="message" 
+                  rows="5" 
+                  class="glass-input textarea-input" 
+                  placeholder="Hello Kushal, I'd like to discuss a project..." 
+                  required 
+                  aria-required="true"
+                ></textarea>
+                <span class="input-error-msg" id="message-error" aria-live="polite"></span>
+              </div>
+
+              <button type="submit" class="glass-btn primary pulse-btn submit-btn" data-sound="click">
+                <span class="btn-icon">🚀</span> SEND MESSAGE
+              </button>
+
+              <div id="form-feedback" class="form-feedback" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== FOOTER & SOCIAL LINKS ==================== -->
+      <!-- ONLY GitHub and LinkedIn profiles present. NO Twitter/X, NO YouTube -->
+      <footer class="cyber-footer" role="contentinfo">
+        <div class="footer-container">
+          <!-- Left: Brand & Copyright -->
+          <div class="footer-left">
+            <div class="footer-logo">KUSHAL<span class="neon-blink">_</span>PORTFOLIO</div>
+            <p class="footer-copy">
+              &copy; <span id="current-year">2026</span> Kushal. Glass Minimalist & Pixel Design System.
+            </p>
+          </div>
+
+          <!-- Center: Social Links (STRICTLY GitHub and LinkedIn ONLY) -->
+          <div class="footer-social-links" aria-label="Social Media Links">
+            <!-- GitHub Link -->
+            <a 
+              href="https://github.com/kushaldkush29-web" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="social-link-btn glass-btn sm" 
+              aria-label="Visit Kushal's GitHub Profile"
+              title="GitHub Profile: kushaldkush29-web"
+              data-sound="click"
+            >
+              <svg class="social-svg-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+              <span>GitHub</span>
+            </a>
+
+            <!-- LinkedIn Link -->
+            <a 
+              href="https://www.linkedin.com/in/kushal-d-bb5b8a397" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="social-link-btn glass-btn sm" 
+              aria-label="Visit Kushal's LinkedIn Profile"
+              title="LinkedIn Profile: kushal-d-bb5b8a397"
+              data-sound="click"
+            >
+              <svg class="social-svg-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+              <span>LinkedIn</span>
+            </a>
+          </div>
+
+          <!-- Right: Back to Top Button -->
+          <div class="footer-right">
+            <a href="#hero" class="glass-btn sm scroll-top-btn" aria-label="Back to top of page" data-sound="blip">
+              <span>▲ Back to Top</span>
+            </a>
+          </div>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <!-- ==================== PROJECT DETAILS MODAL DIALOG ==================== -->
+  <div id="project-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-project-title" hidden>
+    <div class="modal-content glass-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-tag pixel-tag">PROJECT_OVERVIEW</span>
+          <h3 id="modal-project-title" class="modal-title">PROJECT_TITLE</h3>
+        </div>
+        <button id="modal-close-btn" class="glass-btn sm close-btn" aria-label="Close modal dialog" data-sound="blip">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-media-wrapper">
+          <img id="modal-project-img" src="assets/project1.jpg" alt="Project detailed preview" class="modal-img">
+          <div class="hologram-scanline"></div>
+        </div>
+
+        <div class="modal-details">
+          <div class="modal-section">
+            <h4 class="modal-subheading">&gt; DESCRIPTION</h4>
+            <p id="modal-project-description" class="modal-text"></p>
+          </div>
+
+          <div class="modal-section">
+            <h4 class="modal-subheading">&gt; KEY HIGHLIGHTS & ARCHITECTURE</h4>
+            <ul id="modal-project-highlights" class="modal-list"></ul>
+          </div>
+
+          <div class="modal-section">
+            <h4 class="modal-subheading">&gt; TECHNOLOGIES USED</h4>
+            <div id="modal-project-tags" class="modal-tags-container"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <a id="modal-repo-link" href="https://github.com/kushaldkush29-web" target="_blank" rel="noopener noreferrer" class="glass-btn secondary" data-sound="click">
+          <span>📦 View Source Code</span>
+        </a>
+        <a id="modal-live-link" href="#projects" class="glass-btn primary" data-sound="click">
+          <span>🌐 Live Demo</span>
+        </a>
+        <button id="modal-dismiss-btn" class="glass-btn alt" data-sound="blip">
+          <span>Close</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Single JavaScript Entry Point (prevents duplicate execution) -->
+  <script src="js/script.js"></script>
+</body>
+</html>
